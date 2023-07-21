@@ -23,19 +23,33 @@ class DemoPage extends GetWidget {
           ),
           Text('ENV:${config.env.toString()}'),
           BT(
-            title:"JSON file",
+            title: "JSON file",
             onTap: () {
               repo.getProductList();
               nav(context, JsonPage());
               // Get.toNamed(Routes.MAIN);
             },
           ),
+          SizedBox(
+            height: 10,
+          ),
           BT(
-            title:"Json remote",
+            title: "Json remote",
             onTap: () {
               repo.getProductList();
               nav(context, List3());
               // Get.toNamed(Routes.MAIN);
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BT(
+            title: "Home page Demo",
+            onTap: () {
+              // repo.getProductList();
+              // nav(context, List3());
+              Get.toNamed(Routes.MAIN);
             },
           ),
         ],
