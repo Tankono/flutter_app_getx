@@ -9,4 +9,16 @@ function init_repo(){
     git push -u origin main
 }
 
-init_repo
+function commit(){
+    git add .
+    git commit -m "update"
+    git pull
+    git push
+}
+
+function create_branch(){
+    echo 'create branch'
+}
+
+commit
+#init_repo

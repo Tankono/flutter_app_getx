@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_app_getx/ui/demo/demo_binding.dart';
 
 import 'demo/demo_page.dart';
@@ -8,6 +10,18 @@ import 'home/home_binding.dart';
 import 'home/home_page.dart';
 import 'splash/splash_binding.dart';
 import 'splash/splash_page.dart';
+
+
+nav(BuildContext context, Widget widget) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) {
+        return widget;
+      },
+    ),
+  );
+}
 
 abstract class Routes {
   static const DEMO = '/demo';

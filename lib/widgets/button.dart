@@ -6,8 +6,10 @@ class BT extends StatelessWidget {
   Function? onTap;
   final Color background;
   final bool isBorder;
+  final String title;
   BT(
       {super.key,
+      required this.title,
       this.size = 40,
       this.onTap,
       this.background = Colors.white,
@@ -103,7 +105,7 @@ class BT extends StatelessWidget {
       onPressed: () {
         onTap!();
       },
-      child: Text('Button'),
+      child: Text('$title'),
       style: TextButton.styleFrom(
         backgroundColor: Colors.amber,
         shape: RoundedRectangleBorder(

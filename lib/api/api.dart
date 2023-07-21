@@ -1,53 +1,49 @@
-import 'package:flutter_app_getx/api/base_response.dart';
-import 'package:dio/dio.dart';
+import 'dart:io';
 
-class ApiUrl {
-  String? host;
-  final String products = "api/products";
+import 'package:flutter_app_getx/json/JsonHelper.dart';
+import 'package:flutter_app_getx/json/PostModel.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+FetchJSON() async {
+  final url = "https://jsonplaceholder.typicode.com/posts";
+
+  final http.Response response = await http.get(
+    Uri.parse('$url'),
+    headers: {"Accept": "application/json"},
+  );
+
+  if (response.statusCode == 200) {
+    String responseBody = response.body;
+    var responseJSON = json.decode(responseBody);
+    print('response: $responseBody');
+  } else {
+    print('Something went wrong. \nResponse Code : ${response.statusCode}');
+  }
 }
 
-class Api {
-  final Dio _dio;
-  String? baseUrl;
+class api {
+  static Future<List<PostModel>> doRequest() async {
+    final url = "https://jsonplaceholder.typicode.com/posts";
+    final jb = Json<PostModel>(PostModel.new);
 
-  Api(this._dio);
+    List<PostModel> result = [];
 
-  RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
-    if (T != dynamic &&
-        !(requestOptions.responseType == ResponseType.bytes ||
-            requestOptions.responseType == ResponseType.stream)) {
-      if (T == String) {
-        requestOptions.responseType = ResponseType.plain;
-      } else {
-        requestOptions.responseType = ResponseType.json;
-      }
+    final http.Response response = await http.get(
+      Uri.parse('$url'),
+      headers: {"Accept": "application/json"},
+    );
+
+    if (response.statusCode == 200) {
+      String responseBody = response.body;
+      var responseJSON = json.decode(responseBody);
+      result = await jb.parseList(responseJSON);
+    } else {
+      print('Something went wrong. \nResponse Code : ${response.statusCode}');
     }
-    return requestOptions;
-  }
 
-  Future<BaseResponse<dynamic>> getProducts(
-    id,
-    queries,
-  ) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(queries);
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<BaseResponse<dynamic>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/api/history/$id',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = BaseResponse<dynamic>.fromJson(_result.data!);
-    return value;
+    // print('result $result');
+
+    return result;
   }
 }
