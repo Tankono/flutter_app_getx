@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "app(Mock)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/app/mock.dart",
+            "args": ["--target", "lib/app/mock.dart" ]
+        },
+        {
+            "name": "app (dev)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app (prod debug)",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app (prod release)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/app/prod.dart",
+            "args": ["--target", "lib/app/prod.dart" ]
+        }
+    ]
+}
+// "args": ["--flavor", "mock", "--target", "lib/app/mock.dart" ]
