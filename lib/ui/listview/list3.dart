@@ -12,7 +12,6 @@ class List3 extends StatefulWidget {
 }
 
 class _List3State extends ListPageState<PostModel, List3> {
-  // Json<ProductDataModel> jb = Json<ProductDataModel>(ProductDataModel.new);
 
   @override
   Future<List<PostModel>> loadData() async {

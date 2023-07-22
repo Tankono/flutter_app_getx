@@ -4,6 +4,7 @@ import 'package:flutter_app_getx/repository/product_repo.dart';
 import 'package:flutter_app_getx/ui/app_pages.dart';
 import 'package:flutter_app_getx/ui/listview/jsonlocal.dart';
 import 'package:flutter_app_getx/widgets/button.dart';
+import 'package:flutter_app_getx/widgets/core_ui.dart';
 import 'package:get/get.dart';
 import 'package:flutter_app_getx/ui/listview/list3.dart';
 
@@ -21,7 +22,7 @@ class DemoPage extends GetWidget {
           SizedBox(
             height: 50,
           ),
-          Text('ENV:${config.env.toString()}'),
+          TV( title:'ENV:${config.env.toString()}'),
           BT(
             title: "JSON file",
             onTap: () {
@@ -46,6 +47,28 @@ class DemoPage extends GetWidget {
           ),
           BT(
             title: "Home page Demo",
+            onTap: () {
+              // repo.getProductList();
+              // nav(context, List3());
+              Get.toNamed(Routes.MAIN);
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BT(
+            title: "Change locale EN",
+            onTap: () {
+              // repo.getProductList();
+              // nav(context, List3());
+              Get.toNamed(Routes.MAIN);
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BT(
+            title: "Change locale VI",
             onTap: () {
               // repo.getProductList();
               // nav(context, List3());

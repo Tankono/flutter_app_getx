@@ -12,7 +12,7 @@ injectComponents() {
     Get.put<ProductData>(ProductMock(), permanent: true);
   }
 
-  appConfig ??= AppConfig(env: Environment.STAGING, config: {
+  appConfig ??= AppConfig(env: Environment.MOCK, config: {
     BASE_URL: 'https://lobanhmi88.com/wp-json',
     REMOTE_CONFIG_KEY: 'n4vocab_dev',
     FCM_TOPIC: 'test'
@@ -20,12 +20,13 @@ injectComponents() {
 
   Get.put<AppConfig>(appConfig!, permanent: true);
   Get.put<LocalService>(LocalService(), permanent: true);
-
-  // Get.put<AppConfig>(AppConfig(), permanent: true);
   Get.put<ProductService>(ProductService(localService: Get.find()),
       permanent: true);
-
-  // Get.put<ProductData>(ProductMock(), permanent: true);
-
   WidgetsFlutterBinding.ensureInitialized();
+}
+
+class GetxEtension{
+  init(){
+    
+  }
 }
