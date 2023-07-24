@@ -6,7 +6,6 @@ import '../../uiresource/colors.dart';
 import '../../uiresource/app_text_theme.dart';
 import './components/app_bar_home.dart';
 import './components/pop_menu.dart';
-// import 'package:banh_mi_88/widgets/product_card.dart';
 import 'package:get/get.dart';
 import './home_controller.dart';
 

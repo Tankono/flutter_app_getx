@@ -1,6 +1,14 @@
 #!/bin/sh
 #some function auto git repo
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+function no_param(){
+    echo 'check argument...'
+}
+
 function init_repo(){
+    repo_name='git@github.com:Tankono/flutter_app_getx.git'
     git init
     git add .
     git commit -m "first commit"
@@ -10,15 +18,36 @@ function init_repo(){
 }
 
 function commit(){
-    git add .
-    git commit -m "update"
+    commitmsg="update source code"
+    if [ -z "$1" ]
+        commitmsg=$1
+    then
+        echo "update default message:"$commitmsg
+    fi
+    commitmsg="update source code"
     git pull
+    git add .
+    git commit -m "$commitmsg"
     git push
 }
 
 function create_branch(){
-    echo 'create branch'
+    echo 'create branch...'
+    new_branch="temp"
+    if ["$*" == ""];then
+        printf "${RED}[Fails]${NC}:Nhập tên branch mới vào nhé."
+        exit 1    
+    else
+        echo -e "Create new branch:$1"
+        new_branch=$1
+        # echo "Nhập tên branch mới vào nhé."
+        # exit 1
+    fi
+    # echo 'Create new branch'
+    git checkout -b $new_branch
+    git push origin -u $new_branch
 }
 
+# create_branch
 commit
 #init_repo

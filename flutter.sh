@@ -25,4 +25,3 @@ function run_web(){
 
 run_web
 # add_module_getx
-#init_repo

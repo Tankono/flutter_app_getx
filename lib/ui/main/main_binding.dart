@@ -9,28 +9,5 @@ class MainBinding implements Bindings {
     Get.lazyPut(() => HomeController(
           productService: Get.find(),
         ));
-
-    // Get.lazyPut(
-    //   () => MainController(
-    //       accountService: Get.find(),
-    //       authService: Get.find(),
-    //       cartService: Get.find(),
-    //       productService: Get.find()),
-    // );
-    // Get.lazyPut(
-    //   () => HomeController(
-    //       productService: Get.find(),
-    //       accountService: Get.find(),
-    //       cartService: Get.find()),
-    // );
-    // Get.lazyPut(
-    //   () => CategoryController(productService: Get.find()),
-    // );
-    // Get.lazyPut(
-    //   () => FavoriteController(
-    //       productService: Get.find(),
-    //       accountService: Get.find(),
-    //       cartService: Get.find()),
-    // );
   }
 }

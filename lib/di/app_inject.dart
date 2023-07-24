@@ -22,6 +22,7 @@ injectComponents() {
   Get.put<LocalService>(LocalService(), permanent: true);
   Get.put<ProductService>(ProductService(localService: Get.find()),
       permanent: true);
+      
   WidgetsFlutterBinding.ensureInitialized();
 }
 

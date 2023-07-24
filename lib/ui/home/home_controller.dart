@@ -4,6 +4,7 @@ import 'package:flutter_app_getx/data/response_models.dart';
 import 'package:flutter_app_getx/json/JsonHelper.dart';
 import 'package:flutter_app_getx/json/ProductDataModel.dart';
 import 'package:flutter_app_getx/ui/app_pages.dart';
+import 'package:flutter_app_getx/ui/main/main_controller.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
@@ -72,8 +73,9 @@ class HomeController extends GetxController {
     } catch (e) {
       print("@fetchData failt $e");
     }
-    await _productService.getPostList(PostModelType.PROMOTION);
-    await _productService.getCategoryList();
+    update();
+    // await _productService.getPostList(PostModelType.PROMOTION);
+    // await _productService.getCategoryList();
   }
 
   void openPost({required PostModel post}) {

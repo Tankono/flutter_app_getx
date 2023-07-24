@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_getx/app/app_constants.dart';
 import 'package:flutter_app_getx/repository/product_repo.dart';
 import 'package:flutter_app_getx/ui/app_pages.dart';
+import 'package:flutter_app_getx/ui/demo/demo_locale.dart';
 import 'package:flutter_app_getx/ui/listview/jsonlocal.dart';
+import 'package:flutter_app_getx/ui/main/main_page.dart';
 import 'package:flutter_app_getx/widgets/button.dart';
 import 'package:flutter_app_getx/widgets/core_ui.dart';
 import 'package:get/get.dart';
@@ -22,12 +24,16 @@ class DemoPage extends GetWidget {
           SizedBox(
             height: 50,
           ),
-          TV( title:'ENV:${config.env.toString()}'),
+          TV(title: 'ENV:${config.env.toString()}'),
+          TV(
+            title: 'hello'.tr,
+          ),
           BT(
             title: "JSON file",
             onTap: () {
               repo.getProductList();
-              nav(context, JsonPage());
+              // nav(context, JsonPage());
+              Get.to(JsonPage());
               // Get.toNamed(Routes.MAIN);
             },
           ),
@@ -37,7 +43,7 @@ class DemoPage extends GetWidget {
           BT(
             title: "Json remote",
             onTap: () {
-              repo.getProductList();
+              // repo.getProductList();
               nav(context, List3());
               // Get.toNamed(Routes.MAIN);
             },
@@ -50,29 +56,21 @@ class DemoPage extends GetWidget {
             onTap: () {
               // repo.getProductList();
               // nav(context, List3());
-              Get.toNamed(Routes.MAIN);
+              // Get.toNamed(Routes.MAIN);
+              Get.toNamed(Routes.HOME);
+
+              // Get.to(MainPage());
             },
           ),
           SizedBox(
             height: 10,
           ),
           BT(
-            title: "Change locale EN",
+            title: "Locale Demo",
             onTap: () {
               // repo.getProductList();
-              // nav(context, List3());
-              Get.toNamed(Routes.MAIN);
-            },
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          BT(
-            title: "Change locale VI",
-            onTap: () {
-              // repo.getProductList();
-              // nav(context, List3());
-              Get.toNamed(Routes.MAIN);
+              nav(context, DemoLocale());
+              // Get.toNamed(Routes.MAIN);
             },
           ),
         ],
