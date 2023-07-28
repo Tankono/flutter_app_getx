@@ -1,5 +1,5 @@
 // import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../uiresource/colors.dart';
 import '../../uiresource/static_icons.dart';
@@ -98,14 +98,15 @@ class StandardNetWorkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl,
-      width: width,
-      height: height,
-      fit: boxFit,
-      imageBuilder: _renderImageBuilder,
-      placeholder: (context, url) => _renderPlaceholder(),
-      errorWidget: (context, url, error) => _renderPlaceholder(),
-    );
+    return Text("aa");
+    // return CachedNetworkImage(
+    //   imageUrl: imageUrl,
+    //   width: width,
+    //   height: height,
+    //   fit: boxFit,
+    //   imageBuilder: _renderImageBuilder,
+    //   placeholder: (context, url) => _renderPlaceholder(),
+    //   errorWidget: (context, url, error) => _renderPlaceholder(),
+    // );
   }
 }

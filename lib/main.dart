@@ -5,25 +5,13 @@ import 'package:flutter_app_getx/app/app_data.dart';
 import 'package:flutter_app_getx/app/message.dart';
 import 'package:flutter_app_getx/di/app_inject.dart';
 import 'package:flutter_app_getx/ui/app_pages.dart';
-import 'package:get/get.dart';
+import 'package:flutter_app_getx/ui/login/login_page.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
 
 AppConfig? appConfig;
 AppData? appData;
 
-// var app = MaterialApp(
-//   title: 'Localizations Sample App',
-//   localizationsDelegates: [
-//     GlobalMaterialLocalizations.delegate,
-//     GlobalWidgetsLocalizations.delegate,
-//     GlobalCupertinoLocalizations.delegate,
-//   ],
-//   supportedLocales: [
-//     Locale('en'), // English
-//     Locale('es'), // Spanish
-//   ],
-//   home: DemoPage(),
-// );
 void main() {
   injectComponents();
 
@@ -41,9 +29,13 @@ void main() {
     },
     translations: Messages(),
     debugShowCheckedModeBanner: false,
-    // theme: appThemeData,
-    getPages: AppPages.pages,
-    initialRoute: Routes.DEMO,
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      useMaterial3: true,
+    ),
+    home: const LoginPage(),
+    // getPages: AppPages.pages,
+    // initialRoute: Routes.DEMO,
     initialBinding: BindingsBuilder(() {}),
   );
 

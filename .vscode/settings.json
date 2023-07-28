@@ -16,7 +16,7 @@
         "flutter_tuts.iml": true,
         ".flutter-plugins": true,
         ".flutter-plugins-dependencies": true,
-        ".gitignore": true,
+        ".gitignore": false,
         "**/.DS_Store": true
     }
 }

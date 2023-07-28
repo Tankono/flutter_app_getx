@@ -1,6 +1,8 @@
 # flutter_app_getx
 
-A getx Flutter project.
+Feature Login
+
+use easy_loading package
 
 ## Setup a project getx with extra features
 - 1/Add flavor MOCK,DEV,PROD

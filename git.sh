@@ -48,6 +48,6 @@ function create_branch(){
     git push origin -u $new_branch
 }
 
-# create_branch $1
+# create_branch app_login
 commit
 #init_repo

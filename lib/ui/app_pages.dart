@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_app_getx/ui/demo/demo_binding.dart';
-
-import 'demo/demo_page.dart';
-import 'main/main_binding.dart';
-import 'main/main_page.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'home/home_binding.dart';
-import 'home/home_page.dart';
-import 'splash/splash_binding.dart';
-import 'splash/splash_page.dart';
 
 
 nav(BuildContext context, Widget widget) {
@@ -57,31 +48,31 @@ abstract class Routes {
 
 abstract class AppPages {
   static final pages = [
-    GetPage(
-      name: Routes.SPLASH,
-      page: () => const SplashPage(),
-      binding: SplashBinding(),
-    ),
+    // GetPage(
+    //   name: Routes.SPLASH,
+    //   page: () => const SplashPage(),
+    //   binding: SplashBinding(),
+    // ),
     // GetPage(
     //   name: Routes.LOGIN,
     //   page: () => LoginPage(),
     //   binding: LoginBinding(),
     // ),
-    GetPage(
-        name: Routes.MAIN,
-        page: () => const MainPage(),
-        binding: MainBinding(),
-        transition: Transition.upToDown),
-    GetPage(
-      name: Routes.HOME,
-      page: () => HomePage(),
-      binding: HomeBinding(),
-    ),
-     GetPage(
-      name: Routes.DEMO,
-      page: () => DemoPage(),      
-      binding: DemoBinding(),
-    ),
+    // GetPage(
+    //     name: Routes.MAIN,
+    //     page: () => const MainPage(),
+    //     binding: MainBinding(),
+    //     transition: Transition.upToDown),
+    // GetPage(
+    //   name: Routes.HOME,
+    //   page: () => HomePage(),
+    //   binding: HomeBinding(),
+    // ),
+    //  GetPage(
+    //   name: Routes.DEMO,
+    //   page: () => DemoPage(),      
+    //   binding: DemoBinding(),
+    // ),
     // GetPage(
     //   name: Routes.CATEGORY,
     //   page: () => const CategoryPage(),
