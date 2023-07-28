@@ -19,9 +19,9 @@ function init_repo(){
 
 function commit(){
     commitmsg="update source code"
-    if [ -z "$1" ]
-        commitmsg=$1
-    then
+    if ["$*" == ""];then
+        printf "commit with default message:$commitmsg"       
+    else
         echo "update default message:"$commitmsg
     fi
     commitmsg="update source code"
@@ -48,6 +48,6 @@ function create_branch(){
     git push origin -u $new_branch
 }
 
-# create_branch
+# create_branch $1
 commit
 #init_repo

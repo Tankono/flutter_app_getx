@@ -3,9 +3,6 @@ import 'package:flutter_app_getx/data/product_service.dart';
 import 'package:flutter_app_getx/data/response_models.dart';
 import 'package:flutter_app_getx/json/JsonHelper.dart';
 import 'package:flutter_app_getx/json/ProductDataModel.dart';
-import 'package:flutter_app_getx/ui/app_pages.dart';
-import 'package:flutter_app_getx/ui/main/main_controller.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -48,7 +45,7 @@ class HomeController extends GetxController {
   Product mapTemp(ProductDataModel entity) {
     return Product(
         id: 0,
-        name: entity.name!,
+        name: 'entity.name!',
         permalink: 'permalink',
         type: 'type',
         status: 'status',

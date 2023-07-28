@@ -9,7 +9,6 @@ import './components/pop_menu.dart';
 import 'package:get/get.dart';
 import './home_controller.dart';
 
-// ignore: must_be_immutable
 class HomePage extends GetWidget<HomeController> {
   HomePage({Key? key}) : super(key: key);
 
@@ -77,52 +76,93 @@ class HomePage extends GetWidget<HomeController> {
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              sliver: Obx(() {
-                if (controller.isLoading.value) {
-                  return const SliverFillRemaining(
-                    child: LoadingWidget(),
-                  );
-                } else if (controller.productList == null ||
-                    controller.productList?.isEmpty == true) {
-                  return const SliverFillRemaining(
-                    child: Center(child: Text('Không có dữ liệu')),
-                  );
-                }
+              sliver: gridView(context)
+              // Obx(() {
+              //   if (controller.isLoading.value) {
+              //     return const SliverFillRemaining(
+              //       child: LoadingWidget(),
+              //     );
+              //   } else if (controller.productList == null ||
+              //       controller.productList?.isEmpty == true) {
+              //     return const SliverFillRemaining(
+              //       child: Center(child: Text('Không có dữ liệu')),
+              //     );
+              //   }
 
-                return SliverGrid(
-                    delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                        var item = controller.productList![index];
-                        return Obx(() {
-                          return ProductCard(
-                            isMemberVip: false,
-                            productModel: item,
-                            isFavorited: false,
-                            onFav: () {
-                              // controller.addProductIntoFavorites(item);
-                            },
-                            onTap: () {
-                              // controller.openProduct(product: item);
-                            },
-                            onAdd: () {
-                              // controller.account.isMemberVip
-                              //     ? controller.addProduct(product: item)
-                              //     : controller.openComboMember();
-                            },
-                          );
-                        });
-                      },
-                      childCount: controller.productList!.length,
-                    ),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: widthCard / heightCard,
-                        crossAxisSpacing: paddingOfItem,
-                        mainAxisSpacing: paddingOfItem,
-                        crossAxisCount: 2));
-              })),
+              //   return SliverGrid(
+              //       delegate: SliverChildBuilderDelegate(
+              //         (BuildContext context, int index) {
+              //           var item = controller.productList![index];
+              //           return Obx(() {
+              //             return ProductCard(
+              //               isMemberVip: false,
+              //               productModel: item,
+              //               isFavorited: false,
+              //               onFav: () {
+              //                 // controller.addProductIntoFavorites(item);
+              //               },
+              //               onTap: () {
+              //                 // controller.openProduct(product: item);
+              //               },
+              //               onAdd: () {
+              //                 // controller.account.isMemberVip
+              //                 //     ? controller.addProduct(product: item)
+              //                 //     : controller.openComboMember();
+              //               },
+              //             );
+              //           });
+              //         },
+              //         childCount: controller.productList!.length,
+              //       ),
+              //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //           childAspectRatio: widthCard / heightCard,
+              //           crossAxisSpacing: paddingOfItem,
+              //           mainAxisSpacing: paddingOfItem,
+              //           crossAxisCount: 2));
+              // })
+              ),
           const SliverToBoxAdapter(child: SizedBox(height: 80)),
         ]),
       ),
     );
+  }
+
+  Widget gridView(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
+    final double widthCard = (size.width - paddingOfItem) / 2;
+    final double heightCard = (size.height - paddingOfItem) / 2.5;
+    return SliverGrid(
+        delegate: SliverChildBuilderDelegate(
+          (BuildContext context, int index) {
+            // var item = controller.productList![index];
+            var item = controller.products![index];
+
+            return Obx(() {
+              return ProductCard(
+                isMemberVip: false,
+                productModel: item,
+                isFavorited: false,
+                onFav: () {
+                  // controller.addProductIntoFavorites(item);
+                },
+                onTap: () {
+                  // controller.openProduct(product: item);
+                },
+                onAdd: () {
+                  // controller.account.isMemberVip
+                  //     ? controller.addProduct(product: item)
+                  //     : controller.openComboMember();
+                },
+              );
+            });
+          },
+          childCount: controller.productList!.length,
+        ),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: widthCard / heightCard,
+            crossAxisSpacing: paddingOfItem,
+            mainAxisSpacing: paddingOfItem,
+            crossAxisCount: 2));
   }
 }

@@ -9,6 +9,8 @@ import 'package:flutter_app_getx/widgets/button.dart';
 import 'package:flutter_app_getx/widgets/core_ui.dart';
 import 'package:get/get.dart';
 import 'package:flutter_app_getx/ui/listview/list3.dart';
+import 'package:flutter_app_getx/ui/gridview/grid1.dart';
+import 'package:flutter_app_getx/ui/gridview/grid2.dart';
 
 class DemoPage extends GetWidget {
   DemoPage({super.key});
@@ -56,8 +58,8 @@ class DemoPage extends GetWidget {
             onTap: () {
               // repo.getProductList();
               // nav(context, List3());
-              // Get.toNamed(Routes.MAIN);
-              Get.toNamed(Routes.HOME);
+              Get.toNamed(Routes.MAIN);
+              // Get.toNamed(Routes.HOME);
 
               // Get.to(MainPage());
             },
@@ -70,6 +72,28 @@ class DemoPage extends GetWidget {
             onTap: () {
               // repo.getProductList();
               nav(context, DemoLocale());
+              // Get.toNamed(Routes.MAIN);
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BT(
+            title: "Grid1",
+            onTap: () {
+              // repo.getProductList();
+              nav(context, Grid1());
+              // Get.toNamed(Routes.MAIN);
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          BT(
+            title: "Grid2",
+            onTap: () {
+              // repo.getProductList();
+              nav(context, Grid2());
               // Get.toNamed(Routes.MAIN);
             },
           ),

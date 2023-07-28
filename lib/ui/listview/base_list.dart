@@ -13,13 +13,15 @@ class ListPageState<E, S extends StatefulWidget> extends State<S> {
     return [];
   }
 
+  E getItem(int index) => data[index];
+
   Widget itemView(E entity) {
     return ListTile(
       title: Text('$entity'),
     );
   }
 
-  ListView createListView() {
+  Widget createListView() {
     return ListView.builder(
       itemCount: data.length,
       itemBuilder: (context, index) {
@@ -37,19 +39,19 @@ class ListPageState<E, S extends StatefulWidget> extends State<S> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Data from API'),
-        ),
+        // appBar: AppBar(
+        //   title: const Text('Data from API'),
+        // ),
         body: FutureBuilder(
-          future: loadData(),
-          builder: (context, data) {
-            if (data.hasData) {
-              this.data = data.data as List<E>;
-              return createListView();
-            } else {
-              return loadingView();
-            }
-          },
-        ));
+      future: loadData(),
+      builder: (context, data) {
+        if (data.hasData) {
+          this.data = data.data as List<E>;
+          return createListView();
+        } else {
+          return loadingView();
+        }
+      },
+    ));
   }
 }

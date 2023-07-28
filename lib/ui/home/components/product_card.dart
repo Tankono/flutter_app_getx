@@ -31,6 +31,7 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    // Size size = Size(300, 200);
     final double heightCard = (size.height - 20) / 2.7;
     return GestureDetector(
       onTap: widget.onTap,

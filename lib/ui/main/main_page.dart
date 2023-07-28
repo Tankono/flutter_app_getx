@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_getx/ui/gridview/grid2.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../../../uiresource/colors.dart';
 // import 'package:banh_mi_88/modules/category/category_page.dart';
@@ -35,7 +36,7 @@ class MainPage extends GetWidget<MainController> {
   _getPage(int page) {
     switch (page) {
       case 0:
-        return HomePage();
+        return Grid2();
       // case 1:
       //   return FavoritePage();
       // case 2:
