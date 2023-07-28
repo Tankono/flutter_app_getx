@@ -48,6 +48,6 @@ function clean_pc(){
 
 }
 
-clean_pc
-# run_web
+# clean_pc
+run_web
 # add_module_getx

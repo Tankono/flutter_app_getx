@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_getx/ui/app_pages.dart';
+import 'package:flutter_app_getx/ui/home/lhome_page.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class ButtonLogin extends StatelessWidget {
@@ -27,7 +29,8 @@ class ButtonLogin extends StatelessWidget {
         //     ),
         //   );
         // }
-        EasyLoading.show(status: 'loading...');
+        // EasyLoading.show(status: 'loading...');
+        nav(context, HomePage());
       },
       child: const Text("Login"),
     );
