@@ -4,8 +4,11 @@ import 'package:flutter_app_getx/app/app_constants.dart';
 import 'package:flutter_app_getx/app/app_data.dart';
 import 'package:flutter_app_getx/app/message.dart';
 import 'package:flutter_app_getx/di/app_inject.dart';
-import 'package:flutter_app_getx/ui/app_pages.dart';
-import 'package:flutter_app_getx/ui/login/login_page.dart';
+import 'package:flutter_app_getx/ui/demo/app_demo.dart';
+import 'package:flutter_app_getx/ui/login/auth_mod.dart';
+import 'package:flutter_app_getx/ui/todo_getx/main.dart';
+import 'package:flutter_app_getx/ui/todos/todos_page.dart';
+import 'package:flutter_app_getx/ui/todos1/main.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
@@ -33,7 +36,7 @@ void main() {
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       useMaterial3: true,
     ),
-    home: const LoginPage(),
+    home: const TodoList(title: "List"),
     // getPages: AppPages.pages,
     // initialRoute: Routes.DEMO,
     initialBinding: BindingsBuilder(() {}),
@@ -41,6 +44,10 @@ void main() {
 
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
-    runApp(getMaterialApp);
+    // runApp(getMaterialApp);
+    // runApp(TodoApp1());
+    // runApp(TodoGetxApp());
+    // runApp(AuthMod());
+    runApp(AppDemo());
   });
 }

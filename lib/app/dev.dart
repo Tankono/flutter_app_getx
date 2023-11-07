@@ -1,6 +1,5 @@
 import 'package:flutter_app_getx/app/app_constants.dart';
 import 'package:flutter_app_getx/app/app_data.dart';
-import 'package:flutter_app_getx/repository/product_repo.dart';
 import 'package:get/get.dart';
 
 main() {
@@ -11,7 +10,6 @@ main() {
     FCM_TOPIC: 'test'
   });
 
-    Get.put<ProductData>(ProductApi(), permanent: true);
 
 }
 

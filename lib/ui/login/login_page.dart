@@ -40,10 +40,10 @@ class _LoginState extends State<LoginPage> {
               const SizedBox(height: 10),
               InputPassword(),
               const SizedBox(height: 60),
-              Column(
+              const Column(
                 children: [
                   ButtonLogin(),
-                  const SignUpText(),
+                  SignUpText(),
                 ],
               ),
             ],

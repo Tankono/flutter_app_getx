@@ -1,6 +1,6 @@
 # flutter_app_getx
 
-Feature Login
+Basci Todos app
 
 use easy_loading package
 
@@ -27,3 +27,6 @@ This is a template for getX framework
 Avoid use print() use a logging package.
 
 It will have some branch for autobuild app.
+
+Understand about input screen.
+## Reference & keyword

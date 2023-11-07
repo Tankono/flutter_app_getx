@@ -3,13 +3,11 @@ import 'package:flutter_app_getx/app/app_constants.dart';
 import 'package:flutter_app_getx/api/local_service.dart';
 import 'package:flutter_app_getx/data/product_service.dart';
 import 'package:flutter_app_getx/main.dart';
-import 'package:flutter_app_getx/repository/product_repo.dart';
 import 'package:get/get.dart';
 
 injectComponents() {
   if (appConfig == null) {
     print('Start default witn EVN:MOCK');
-    Get.put<ProductData>(ProductMock(), permanent: true);
   }
 
   appConfig ??= AppConfig(env: Environment.MOCK, config: {
