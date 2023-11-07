@@ -134,7 +134,10 @@ class _LoginState extends State<InputPage> {
                         // );
                         // showAboutDialog(context: context);
                       }
-                      DialogHelper.showAlert(context);
+                      // DialogHelper.showAlert(context);
+                      // DialogHelper.showLoaderDialog(context);
+                      showLoading();
+                      hideLoading();
                       // showAboutDialog(context: context);
                     },
                     child: const Text("Login"),
@@ -169,29 +172,39 @@ class _LoginState extends State<InputPage> {
     );
   }
 
-  showAlertDialog(BuildContext context) {
-    // set up the button
-    Widget okButton = TextButton(
-      child: Text("OK"),
-      onPressed: () {},
-    );
+  // showAlertDialog(BuildContext context) {
+  //   // set up the button
+  //   Widget okButton = TextButton(
+  //     child: Text("OK"),
+  //     onPressed: () {},
+  //   );
 
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text("My title"),
-      content: Text("This is my message."),
-      actions: [
-        okButton,
-      ],
-    );
+  //   // set up the AlertDialog
+  //   AlertDialog alert = AlertDialog(
+  //     title: Text("My title"),
+  //     content: Text("This is my message."),
+  //     actions: [
+  //       okButton,
+  //     ],
+  //   );
 
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
+  //   // show the dialog
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return alert;
+  //     },
+  //   );
+  // }
+
+  showLoading() {
+    DialogHelper.showLoaderDialog(context);
+  }
+
+  hideLoading() {
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      Navigator.pop(context);
+    });
   }
 
   @override
